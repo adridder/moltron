@@ -149,7 +149,6 @@ if [ $? -eq 0 ]; then
     echo -e "   To:   ${MAGENTA}$TARGET_DIR/moltron${NC}"
     echo ""
     echo -e "${YELLOW}${BOLD}Next steps:${NC}"
-    echo -e "   1️⃣  Restart your OpenClaw agent (if running)"
     echo -e "   2️⃣  The Moltron skill should now be available"
     echo -e "   3️⃣  Your agents can now learn and evolve! 🚀"
     echo ""
