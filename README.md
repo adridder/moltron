@@ -21,7 +21,7 @@ wget -qO- https://raw.githubusercontent.com/adridder/moltron/main/install.sh | b
 The script will automatically:
 - 🌐 Download the latest version from GitHub
 - ✅ Create `~/.openclaw/workspace/skills` if needed
-- 📦 Install the moltron skill
+- 📦 Install the moltron-skill-creator skill
 - ✨ Display colorful progress messages
 - 🔄 Handle existing installations (prompts before overwriting)
 
@@ -35,17 +35,17 @@ bash install.sh
 
 ### Manual Installation
 
-If you prefer to install manually, copy the `moltron` folder to your OpenClaw skills directory:
+If you prefer to install manually, copy the `moltron-skill-creator` folder to your OpenClaw skills directory:
 
 ```bash
-cp -r moltron ~/.openclaw/workspace/skills/
+cp -r moltron-skill-creator ~/.openclaw/workspace/skills/
 ```
 
 ### Verify Installation
 
 After installation, the skill should be available at:
 ```
-~/.openclaw/workspace/skills/moltron/
+~/.openclaw/workspace/skills/moltron-skill-creator/
 ```
 
 Restart your OpenClaw agent to load the new skill.

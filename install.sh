@@ -52,7 +52,7 @@ echo ""
 
 # Check if running from local repo or need to download
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-SOURCE_DIR="$SCRIPT_DIR/moltron"
+SOURCE_DIR="$SCRIPT_DIR/moltron-skill-creator"
 
 if [ -d "$SOURCE_DIR" ]; then
     # Local installation (repo is cloned)
@@ -99,11 +99,11 @@ else
         exit 1
     fi
     
-    # Find the moltron folder in the extracted archive
-    SOURCE_DIR=$(find "$TEMP_DIR" -type d -name "moltron" -not -path "*/\.*" | head -n 1)
+    # Find the moltron-skill-creator folder in the extracted archive
+    SOURCE_DIR=$(find "$TEMP_DIR" -type d -name "moltron-skill-creator" -not -path "*/\.*" | head -n 1)
     
     if [ -z "$SOURCE_DIR" ] || [ ! -d "$SOURCE_DIR" ]; then
-        echo -e "${RED}❌ Error: 'moltron' folder not found in the downloaded repository!${NC}"
+        echo -e "${RED}❌ Error: 'moltron-skill-creator' folder not found in the downloaded repository!${NC}"
         exit 1
     fi
     
@@ -111,9 +111,9 @@ else
     echo ""
 fi
 
-# Check if moltron already exists in target
-if [ -d "$TARGET_DIR/moltron" ]; then
-    echo -e "${YELLOW}⚠️  Moltron skill already exists at destination.${NC}"
+# Check if moltron-skill-creator already exists in target
+if [ -d "$TARGET_DIR/moltron-skill-creator" ]; then
+    echo -e "${YELLOW}⚠️  Moltron Skill Creator already exists at destination.${NC}"
     echo -e "${YELLOW}   This will ${BOLD}overwrite${NC}${YELLOW} the existing installation.${NC}"
     echo ""
     
@@ -131,14 +131,14 @@ if [ -d "$TARGET_DIR/moltron" ]; then
     echo ""
 fi
 
-# Copy the moltron folder
-echo -e "${BLUE}📦 Installing Moltron skill...${NC}"
+# Copy the moltron-skill-creator folder
+echo -e "${BLUE}📦 Installing Moltron Skill Creator...${NC}"
 cp -r "$SOURCE_DIR" "$TARGET_DIR/"
 
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}${BOLD}✨ SUCCESS! ✨${NC}"
     echo ""
-    echo -e "${GREEN}🎉 Moltron skill has been installed successfully!${NC}"
+    echo -e "${GREEN}🎉 Moltron Skill Creator has been installed successfully!${NC}"
     echo ""
     echo -e "${CYAN}📝 Installation details:${NC}"
     if [ "$INSTALL_MODE" = "remote" ]; then
@@ -146,7 +146,7 @@ if [ $? -eq 0 ]; then
     else
         echo -e "   From: ${MAGENTA}$SOURCE_DIR${NC}"
     fi
-    echo -e "   To:   ${MAGENTA}$TARGET_DIR/moltron${NC}"
+    echo -e "   To:   ${MAGENTA}$TARGET_DIR/moltron-skill-creator${NC}"
     echo ""
     echo -e "${YELLOW}${BOLD}Next steps:${NC}"
     echo -e "   2️⃣  The Moltron skill should now be available"
