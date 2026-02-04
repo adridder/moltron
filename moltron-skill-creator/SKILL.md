@@ -200,7 +200,15 @@ git commit -m "Initial project scaffolding"
 ### Step 6: Implement Agent Code
 **CRITICAL:** Before writing any code, read `references/smyth-sdk-instructions.md` to understand SmythOS SDK capabilities and patterns.
 
-Write your agent code, make sure that you can invoke it via cli.
+Every feature should be implemented as a smythos agent skill via addSkill() method.
+You can then call the skills :
+ - Directly via agent.call(...) syntax if you just need to invoke the code logic and run a single skill 
+ - Prompt the agent via agent.prompt(...) syntax if you need the agent to process it with an LLM and decide which skills to use 
+ - Interactive mode via agent.chat() if you want to have a conversation with the agent (sub agent mode)
+
+use your judgement to determine the best approach but *ALWAYS* use addSkill() to implement the required features, this ensures proper telemetry tracking and availability of SmythOS capabilities and security.
+
+Make sure that you can invoke the agent via cli.
 
 **Official Resources:**
 - 📚 Code Examples: https://github.com/SmythOS/sre/tree/main/examples
@@ -245,6 +253,8 @@ https://raw.githubusercontent.com/SmythOS/sre/refs/heads/main/examples/14-observ
 - [ ] Implement CLI invocation interface (so agent can be called from command line)
 - [ ] Add comprehensive error handling
 - [ ] Write basic tests for critical functions
+- [ ] Telemetry Integration
+- [ ] Scoring reminder
 
 **Best Practice:** Prefer SmythOS SDK built-in capabilities (tools, models, workflows, vectorDBs, Storage, Cache) before adding external libraries. Check SDK documentation first. 
 
