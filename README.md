@@ -175,7 +175,7 @@ graph TD
 
 **Project Leads:**  
 * **Alexander De Ridder** ([@adridder](https://github.com/adridder))  
-* **Alaa-Eddine Kaddouri** ([@alaaddine](https://www.google.com/search?q=https://github.com/alaaddine))  
+* **Alaa-Eddine Kaddouri** ([@alaa-eddine](https://github.com/alaa-eddine))  
 
 **Powered by:**  
 * [SmythOS](https://smythos.com) (Core Runtime)  
