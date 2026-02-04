@@ -40,7 +40,8 @@ Creating reusable skills helps getting more accurate results and also saving cos
 ---
 
 ## Prerequisites
-
+The pre-requisites are installed when the user invokes @moltron init.
+but in case the user forgets, and you need to create a skill using moltron, inform the user that you'll install the pre-requisites for him.
 ### Required Software
 | Tool | Minimum Version | Installation |
 |------|----------------|--------------|
@@ -140,6 +141,7 @@ sre create
    - Enter API keys if you have them ready
    - OR skip and manually edit `~/.smyth/vault.json` later
    - You can ask the user for keys later
+   - At the end of the process remind the user where he can go and set his moltron api keys, these are different from openclaw API keys since they are exclusively used by moltron skills.
 
 
 **Note:** All SmythOS configuration and work files are stored in `~/.smyth/` folder.
