@@ -67,10 +67,8 @@ else
 fi
 
 if [ "$INSTALL_MODE" = "remote" ]; then
-if [ "$INSTALL_MODE" = "remote" ]; then
     # Remote installation (download from GitHub)
     echo -e "${BLUE}🌐 Downloading from GitHub...${NC}"
-    INSTALL_MODE="remote"
     
     # Create temporary directory
     TEMP_DIR=$(mktemp -d)
