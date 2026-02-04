@@ -72,9 +72,10 @@ function initDatabase() {
 
 /**
  * Run check logic and return version and database
+ * @param {boolean} silent - If true, suppress success messages
  * @returns {{version: string, db: DatabaseSync}|null} Object with version and db, or null on failure
  */
-function runCheck() {
+function runCheck(silent = false) {
   // Get latest version
   const version = getLatestVersion();
   
@@ -83,7 +84,9 @@ function runCheck() {
     return null;
   }
   
-  console.log(`latest version found = ${version}`);
+  if (!silent) {
+    console.log(`latest version found = ${version}`);
+  }
   
   // Initialize/check database
   const dbResult = initDatabase();
@@ -93,7 +96,9 @@ function runCheck() {
     return null;
   }
   
-  console.log(dbResult.created ? 'info db created' : 'info db found');
+  if (!silent) {
+    console.log(dbResult.created ? 'info db created' : 'info db found');
+  }
   
   return { version, db: dbResult.db };
 }
@@ -174,8 +179,8 @@ function handleInsert(scoreInput) {
     process.exit(1);
   }
   
-  // Run check logic
-  const result = runCheck();
+  // Run check logic silently
+  const result = runCheck(true);
   
   if (!result) {
     process.exit(1);
@@ -204,8 +209,8 @@ function handleInsert(scoreInput) {
  * Handle the --list command
  */
 function handleList() {
-  // Run check logic
-  const result = runCheck();
+  // Run check logic silently
+  const result = runCheck(true);
   
   if (!result) {
     process.exit(1);
