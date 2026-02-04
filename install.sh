@@ -137,7 +137,7 @@ if [ -d "$TARGET_DIR/moltron-skill-creator" ]; then
     else
         echo -e "${BOLD}${CYAN}   Do you want to proceed with the update? ${YELLOW}(y/N)${NC}"
         echo -n "   Your choice: "
-        read -n 1 -r
+        read -n 1 -r REPLY < /dev/tty
         echo ""
         echo ""
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then
