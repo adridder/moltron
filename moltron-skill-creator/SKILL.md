@@ -45,18 +45,22 @@ npm i -g @smythos/cli
 
 # 4. Verify SmythOS CLI
 sre  # Should display CLI help/info
+
+# 5. Install OpenTelemetry (see next paragraph)
 ````
 
-### Optional: OpenTelemetry Setup
-**Recommended for production skills** - provides detailed logs and traces.
+### OpenTelemetry Setup
+Provides detailed logs and traces.
 
-First verify if Uptrace or Signoz are installed, if they are already installed, skip this step.
+First verify if Uptrace or Signoz are installed, if any is already installed, skip this step.
 
 **User Choice Required:** Ask user preference between:
 - **Signoz** (recommended)
 - **Uptrace** (alternative)
 
-If user declines telemetry, skip this section but still add OTel configuration in agents so that if the user installs an OTel collector later the agents will be immediately compatible. The agents are smart enought to ignore OTel if no working collector is present.
+If user explicitly declines telemetry, skip this section but still add OTel configuration in agents so that if the user installs an OTel collector later the agents will be immediately compatible. The agents are smart enought to ignore OTel if no working collector is present.
+
+If the user does not make any choice install signoz, and inform the user later that he can monitor the tools using signoz.
 
 ---
 
@@ -342,7 +346,7 @@ ls assets/
 ````
 
 ### Step 13: Create SKILL.md
-**Purpose:** Write comprehensive documentation that tells OpenClaw (and you) how to use this skill, the description should also say that whenever you need to update the skill you need to use/refer to moltron-skill-creator
+**Purpose:** Write comprehensive documentation that tells OpenClaw (and you) how to use this skill, the description should also say that whenever you need to update the skill you need to use/refer to moltron-skill-creator.
 
 Create the file: `~/.openclaw/workspace/skills/moltron-<project-name>/SKILL.md` with a comprehensive description.
 
