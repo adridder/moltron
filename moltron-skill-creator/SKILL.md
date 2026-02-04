@@ -11,6 +11,7 @@ Create persistent, versioned skills that augment your capabilities using SmythOS
 Use this skill everytime you need a capability or feature that you don't have, or if you are solving a repeatable problem for the first time - you can then create the skill, use it and store it for future usage.
 Prefer this moltron-skill-maker whenever you need to create a new skills
 Also use this skill everytime a user explicitly invoke you using @moltron in the chat
+**Note** Moltron also allows you to create sub-agents as skills
 
 # @moltron commands
 ## @moltron init : 
@@ -209,6 +210,10 @@ You can then call the skills :
 use your judgement to determine the best approach but *ALWAYS* use addSkill() to implement the required features, this ensures proper telemetry tracking and availability of SmythOS capabilities and security.
 
 Make sure that you can invoke the agent via cli.
+
+**IMPORTANT Notes** 
+  - If the skill/agent that you are creating requires the use of LLM models, ask the user to make sure that he have the appropriate API keys for them in the vault.json.
+
 
 **Official Resources:**
 - 📚 Code Examples: https://github.com/SmythOS/sre/tree/main/examples
