@@ -110,7 +110,9 @@ It plugs into OpenClaw, but with the right permissions and heartbeat, it also wo
 MOLTRON upgrades your OpenClaw skill creation and gives it:  
 - **accountability**  
 - **self-reflection**  
-- **versioning**  
+- **versioning**
+
+![Self Evaluation of Skills](https://moltron.ai/images/uploaded-image.png)  
 
 It also:  
 - utilizes the best CLI agent runtime sandbox for added security and reproducibility  
