@@ -113,20 +113,51 @@ fi
 
 # Check if moltron-skill-creator already exists in target
 if [ -d "$TARGET_DIR/moltron-skill-creator" ]; then
-    echo -e "${YELLOW}⚠️  Moltron Skill Creator already exists at destination.${NC}"
-    echo -e "${YELLOW}   This will ${BOLD}overwrite${NC}${YELLOW} the existing installation.${NC}"
+    echo -e "${YELLOW}╔═══════════════════════════════════════════╗${NC}"
+    echo -e "${YELLOW}║          ⚠️  UPDATE DETECTED  ⚠️          ║${NC}"
+    echo -e "${YELLOW}╚═══════════════════════════════════════════╝${NC}"
+    echo ""
+    echo -e "${YELLOW}${BOLD}Moltron Skill Creator is already installed${NC}"
+    echo -e "${YELLOW}Location: ${MAGENTA}$TARGET_DIR/moltron-skill-creator${NC}"
+    echo ""
+    echo -e "${RED}${BOLD}⚠️  WARNING:${NC}"
+    echo -e "${RED}   Proceeding will ${BOLD}PERMANENTLY OVERWRITE${NC}${RED} the existing installation.${NC}"
+    echo -e "${RED}   All local modifications and data will be ${BOLD}LOST${NC}${RED}.${NC}"
+    echo ""
+    echo -e "${CYAN}💡 ${BOLD}Recommendation:${NC}"
+    echo -e "${CYAN}   If you have made custom changes, cancel now (press N)${NC}"
+    echo -e "${CYAN}   and create a backup first:${NC}"
+    echo -e "${BLUE}   cp -r $TARGET_DIR/moltron-skill-creator $TARGET_DIR/moltron-skill-creator.backup${NC}"
     echo ""
     
     # Auto-yes mode for non-interactive installs
     if [ "$AUTO_YES" = "true" ]; then
-        echo -e "${BLUE}   Auto-yes mode enabled, proceeding...${NC}"
+        echo -e "${BLUE}   Auto-yes mode enabled, proceeding with update...${NC}"
+        echo ""
     else
-        read -p "   Continue? (y/N): " -n 1 -r
+        read -p "   Do you want to proceed with the update? (y/N): " -n 1 -r
         echo ""
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-            echo -e "${BLUE}ℹ️  Installation cancelled.${NC}"
+            echo ""
+            echo -e "${GREEN}✅ Update cancelled. Your existing installation is safe.${NC}"
+            echo ""
+            echo -e "${CYAN}To backup your current installation, run:${NC}"
+            echo -e "${BLUE}cp -r $TARGET_DIR/moltron-skill-creator $TARGET_DIR/moltron-skill-creator.backup${NC}"
+            echo ""
             exit 0
         fi
+    fi
+    echo ""
+    echo -e "${BLUE}📝 Creating backup before update...${NC}"
+    
+    # Create automatic backup with timestamp
+    BACKUP_DIR="$TARGET_DIR/moltron-skill-creator.backup.$(date +%Y%m%d_%H%M%S)"
+    cp -r "$TARGET_DIR/moltron-skill-creator" "$BACKUP_DIR"
+    
+    if [ $? -eq 0 ]; then
+        echo -e "${GREEN}✅ Backup created at: ${MAGENTA}$BACKUP_DIR${NC}"
+    else
+        echo -e "${YELLOW}⚠️  Failed to create backup, but continuing...${NC}"
     fi
     echo ""
 fi
