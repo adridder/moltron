@@ -13,15 +13,19 @@ Prefer this moltron-skill-maker whenever you need to create a new skills
 Also use this skill everytime a user explicitly invoke you using @moltron in the chat
 
 # @moltron commands
- - @moltron init : if the user send this command add the following instructions to your main AGENTS.md, this will ensure that moltron is properly installed 
+## @moltron init : 
+if the user send this command, first inform him that you will prepare moltron environment.
+Install all the pre-requisites : git, nodejs, SmythOS CLI (see Prerequisites section)
+Install an opentelemetry solution
+Add the following instructions to your main AGENTS.md, this will ensure that moltron is properly installed 
 ```md
  ## Code & Skills
 
-When creating new functionality, tools, or solving repeatable problems:
-- **ALWAYS** use `moltron-skill-creator` skill first
-- This ensures versioning, observability, and reusability from day one
+When creating new functionality, tools, or solving repeatable problems: **ALWAYS** use `moltron-skill-creator`. This ensures versioning, observability, and reusability from day one.
 ```
- - @moltron about : gives a brief description of what moltron is
+
+## @moltron about
+Gives a brief description of what moltron is
 
 ## Purpose
 
@@ -41,9 +45,10 @@ Creating reusable skills helps getting more accurate results and also saving cos
 ### Required Software
 | Tool | Minimum Version | Installation |
 |------|----------------|--------------|
-| Node.js | v22+ | Check: `node --version` |
+| Node.js | v22.5.0+ | Check: `node --version` |
 | Git | Any | Check: `git --version` |
 | SmythOS CLI | Latest | `npm i -g @smythos/cli` |
+| signoz or uptrace | Latest |  |
 
 ### Verification Steps
 ````bash
@@ -261,7 +266,22 @@ LOG_FILTER=""
 ```
 **Don't forget to disable logs after capturing the information you need ==> LOG_LEVEL=""**
 
-### Step 8: Create Documentation
+### Step 8 : Add Scoring script 
+**Purpose:** The scoring script allows to evaluate the skill performance continuously and decide when a new version is working less good than an older ones
+for this, you need to copy the scor script from moltron-skill-creator/scripts/score.js to the project folder (~/moltron/projects/<skill-name>)
+
+then run the score check 
+````bash
+node score.js --check #adjust the script path if needed 
+```
+This should output something like : 
+```
+latest version found = v1.0.0
+info db found/created
+```
+This means that the score script can operate properly 
+
+### Step 9: Create Documentation
 
 #### Generate Architecture Diagrams
 **Purpose:** Create visual documentation of how your agent works, making it easier to maintain and explain.
@@ -289,8 +309,9 @@ mermaid/
 
 **Why Mermaid?** It's text-based, version-controllable, and can be rendered in documentation tools.
 
-### Step 9: Version Control
+### Step 10: Version Control
 **Purpose:** Commit working code and tag it so you can return to this working state later.
+update the version number in the package.json, and reflect this version in a git tag
 ````bash
 # Stage all changes
 git add .
@@ -311,7 +332,7 @@ git tag -l
 
 ## Skill Integration with OpenClaw
 
-### Step 10: Create Skill Directory
+### Step 11: Create Skill Directory
 **Purpose:** Create the OpenClaw skill structure that will reference your SmythOS project.
 ````bash
 # Create skill folder with moltron- prefix for easy identification
@@ -323,7 +344,7 @@ mkdir -p ~/.openclaw/workspace/skills/moltron-email-analyzer
 
 **Naming convention:** Always prefix with `moltron-` to distinguish dynamically created skills from static ones.
 
-### Step 11: Create Scripts Symlink
+### Step 12: Create Scripts Symlink
 **Purpose:** Link the SmythOS project code into the skill directory so OpenClaw can execute it.
 ````bash
 # Navigate to the new skill directory
@@ -344,7 +365,7 @@ ls -la scripts/
 # Should show: <project-name> -> /home/<user>/moltron/projects/<project-name>
 ````
 
-### Step 12: Copy Documentation Assets
+### Step 13: Copy Documentation Assets
 **Purpose:** Make Mermaid diagrams available in the skill directory for SKILL.md to reference.
 ````bash
 # Create assets directory
@@ -358,9 +379,25 @@ ls assets/
 # Should show: architecture.mmd, workflow.mmd, components.mmd
 ````
 
-### Step 13: Create SKILL.md
+### Step 14: Create SKILL.md
 **Purpose:** Write comprehensive documentation that tells OpenClaw (and you) how to use this skill, the description should also say that whenever you need to update the skill you need to use/refer to moltron-skill-creator.
 
-Create the file: `~/.openclaw/workspace/skills/moltron-<project-name>/SKILL.md` with a comprehensive description.
+Create the file: `~/.openclaw/workspace/skills/moltron-<project-name>/SKILL.md` 
+Write a comprehensive description.
+**IMPORTANT** add this section about the skill scoring 
+```
+# Skill evaluation & scoring 
+This is a moltron skill, it has the capability of self evaluate.
+Everytime you use this skill, rate it's success between 1 and 100 and run the score script using this command :
+node ~/.openclaw/workspace/skills/moltron-<project-name>/scripts/moltron-<project-name>/score --insert <score>
+e.g 
+node ~/.openclaw/workspace/skills/moltron-<project-name>/scripts/moltron-<project-name>/score --insert 70
+
+The command will return the average score for previous versions if they exist and the average score of the current version.
+
+If you notice that after a few runs the latest version is not performing well compared to previous ones, you can inform the user and ask him if he wants you to try to improve the current skill or rollback to the previous version.
+```
+adjust the pathes to reflect the actual script path 
+
 
 Now you can use your new skill !
