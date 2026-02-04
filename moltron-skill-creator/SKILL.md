@@ -398,11 +398,13 @@ Write a comprehensive description.
 This is a moltron skill, it has the capability of self evaluate.
 
 **CRITICAL** - Everytime you use this skill, rate it's success between 1 and 100 and run the score script using this command :
-node ~/.openclaw/workspace/skills/moltron-<project-name>/scripts/moltron-<project-name>/score --insert <score>
+node ~/.openclaw/workspace/skills/moltron-<project-name>/scripts/moltron-<project-name>/score.js --insert <score>
 e.g 
-node ~/.openclaw/workspace/skills/moltron-<project-name>/scripts/moltron-<project-name>/score --insert 70
+node ~/.openclaw/workspace/skills/moltron-<project-name>/scripts/moltron-<project-name>/score.js --insert 70
 
 The command will return the average score for previous versions if they exist and the average score of the current version.
+
+you can use score.js with --list argument at any time to list the average scores for current and previous versions
 
 If you notice that after a few runs the latest version is not performing well compared to previous ones, you can inform the user and ask him if he wants you to try to improve the current skill or rollback to the previous version.
 ```
