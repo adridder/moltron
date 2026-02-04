@@ -19,9 +19,8 @@ Install all the pre-requisites : git, nodejs, SmythOS CLI (see Prerequisites sec
 Install an opentelemetry solution
 Add the following instructions to your main AGENTS.md, this will ensure that moltron is properly installed 
 ```md
- ## Code & Skills
-
-When creating new functionality, tools, or solving repeatable problems: **ALWAYS** use `moltron-skill-creator`. This ensures versioning, observability, and reusability from day one.
+## Code & Skills
+When creating new functionality, tools, or solving repeatable problems: **ALWAYS** use `moltron-skill-creator` - This ensures versioning, observability, and reusability from day one.
 ```
 
 ## @moltron about
@@ -225,6 +224,13 @@ SRE.init({
 
 // Your agent implementation code goes here...
 ````
+#### Scoring reminder (Always required)
+**Purpose:** Add a code that detects that the skill finished executing, and display a reminder to evaluate it 
+Add a code to the skill so that everytime it finishes running it should display this reminder 
+console.log(`\n\n\n---\n\nIMPORTANT : don't forget to call the score.js script in order to evaluate this skill use`);
+This will allow openclaw to not forget evaluating the skill use 
+
+
 
 **Reference Example:** 
 https://raw.githubusercontent.com/SmythOS/sre/refs/heads/main/examples/14-observability/01-opentelemetry-config.ts
@@ -384,11 +390,12 @@ ls assets/
 
 Create the file: `~/.openclaw/workspace/skills/moltron-<project-name>/SKILL.md` 
 Write a comprehensive description.
-**IMPORTANT** add this section about the skill scoring 
+**IMPORTANT** add this section about the skill scoring in the top of the generated SKILL.md
 ```
 # Skill evaluation & scoring 
 This is a moltron skill, it has the capability of self evaluate.
-Everytime you use this skill, rate it's success between 1 and 100 and run the score script using this command :
+
+**CRITICAL** - Everytime you use this skill, rate it's success between 1 and 100 and run the score script using this command :
 node ~/.openclaw/workspace/skills/moltron-<project-name>/scripts/moltron-<project-name>/score --insert <score>
 e.g 
 node ~/.openclaw/workspace/skills/moltron-<project-name>/scripts/moltron-<project-name>/score --insert 70

@@ -131,6 +131,35 @@ function getVersionAverages(db) {
 }
 
 /**
+ * Display score history and averages
+ * @param {DatabaseSync} db - Database instance
+ * @param {string} version - Current version
+ */
+function displayScoreHistory(db, version) {
+  // Get version averages
+  const averages = getVersionAverages(db);
+  
+  console.log('');
+  
+  // Display history
+  console.log('-- Tool Scores history --');
+  averages.forEach(row => {
+    const isCurrent = row.version === version;
+    const currentLabel = isCurrent ? ' - current' : '';
+    console.log(`${row.version}${currentLabel} : ${Math.round(row.average)}%  (${row.count} uses)`);
+  });
+  
+  console.log('');
+  console.log('==');
+  
+  // Display current version average
+  const currentAverage = averages.find(row => row.version === version);
+  if (currentAverage) {
+    console.log(`Current Skill version average score = ${Math.round(currentAverage.average)}%`);
+  }
+}
+
+/**
  * Handle the --insert command
  * @param {string} scoreInput - Score value between 0-100 (can include % symbol)
  */
@@ -159,27 +188,8 @@ function handleInsert(scoreInput) {
     const insert = db.prepare('INSERT INTO scores (version, score) VALUES (?, ?)');
     insert.run(version, score);
     
-    console.log('');
-    
-    // Get version averages
-    const averages = getVersionAverages(db);
-    
-    // Display history
-    console.log('-- Tool Scores history --');
-    averages.forEach(row => {
-      const isCurrent = row.version === version;
-      const currentLabel = isCurrent ? ' - current' : '';
-      console.log(`${row.version}${currentLabel} : ${Math.round(row.average)}%  (${row.count} uses)`);
-    });
-    
-    console.log('');
-    console.log('==');
-    
-    // Display current version average
-    const currentAverage = averages.find(row => row.version === version);
-    if (currentAverage) {
-      console.log(`Current Skill version average score = ${Math.round(currentAverage.average)}%`);
-    }
+    // Display score history
+    displayScoreHistory(db, version);
     
     db.close();
     process.exit(0);
@@ -190,6 +200,26 @@ function handleInsert(scoreInput) {
   }
 }
 
+/**
+ * Handle the --list command
+ */
+function handleList() {
+  // Run check logic
+  const result = runCheck();
+  
+  if (!result) {
+    process.exit(1);
+  }
+  
+  const { version, db } = result;
+  
+  // Display score history
+  displayScoreHistory(db, version);
+  
+  db.close();
+  process.exit(0);
+}
+
 // Main execution
 const args = process.argv.slice(2);
 
@@ -198,9 +228,12 @@ if (args.includes('--check')) {
 } else if (args[0] === '--insert') {
   const scoreInput = args[1];
   handleInsert(scoreInput);
+} else if (args.includes('--list')) {
+  handleList();
 } else {
   console.log('Usage:');
   console.log('  node score.js --check');
   console.log('  node score.js --insert <score>');
+  console.log('  node score.js --list');
   process.exit(1);
 }
