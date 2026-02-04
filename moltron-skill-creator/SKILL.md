@@ -8,7 +8,7 @@ tags: [skill-creation, smythos, agent-builder, observability, evolution]
 # Moltron Skills Maker
 
 Create persistent, versioned skills that augment your capabilities using SmythOS SDK. Skills are local agents with built-in observability and git-based version control.
-Use this skill everytime you need a capability or feature that you don't have, you can then create it, use it and store it for future usage.
+Use this skill everytime you need a capability or feature that you don't have, or if you are solving a repeatable problem for the first time - you can then create the skill, use it and store it for future usage.
 Prefer this moltron-skill-maker whenever you need to create a new skills
 Also use this skill everytime a user explicitly invoke you using @moltron in the chat
 
