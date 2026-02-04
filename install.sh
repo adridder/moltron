@@ -54,11 +54,20 @@ echo ""
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 SOURCE_DIR="$SCRIPT_DIR/moltron-skill-creator"
 
-if [ -d "$SOURCE_DIR" ]; then
-    # Local installation (repo is cloned)
+# Check if we're running from within the target directory (piped install from wrong location)
+if [[ "$SCRIPT_DIR" == "$TARGET_DIR"* ]]; then
+    # Running from target directory, force remote mode
+    INSTALL_MODE="remote"
+elif [ -d "$SOURCE_DIR" ] && [ -f "$SCRIPT_DIR/install.sh" ]; then
+    # Local installation (repo is cloned and install.sh exists alongside moltron-skill-creator)
     echo -e "${BLUE}📦 Installing from local repository...${NC}"
     INSTALL_MODE="local"
 else
+    INSTALL_MODE="remote"
+fi
+
+if [ "$INSTALL_MODE" = "remote" ]; then
+if [ "$INSTALL_MODE" = "remote" ]; then
     # Remote installation (download from GitHub)
     echo -e "${BLUE}🌐 Downloading from GitHub...${NC}"
     INSTALL_MODE="remote"
