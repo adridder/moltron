@@ -21,6 +21,8 @@ This skill enables you to:
 - **Improve** skills iteratively through updates
 - **Persist** skills forever once created
 
+Creating reusable skills helps getting more accurate results and also saving costs, because many parts of a skill can be deterministic, by implementing them once and reusing them we avoid spending thinking tokens everytime time we want to solve the same problem
+
 ---
 
 ## Prerequisites
