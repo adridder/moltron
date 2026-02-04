@@ -31,7 +31,7 @@ Just install the MOLTRON skill in OpenClaw, and then it will teach itself skills
 
 # Why we made Moltron
 
-Moltron Logo
+![Moltron Logo](https://moltron.ai/assets/moltron-logo-CvfRdu05.png)
 
 > **"Carcinization: Everything Evolves into a Crab."**
 
@@ -83,6 +83,8 @@ Your boss hands you a process, but a change happened and the process no longer w
 Try to re-interpret your skill and re-solve the same problem each time you encounter it with expensive models. No idea if you actually improved or worsened the outcome.
 - **MOLTRON**  
 Notices the process doesn't work, inspects its telemetry, logs, self reflects on how to make process better, updates its own skill, backs up versions with git, scores the outcome, and is able to report on how well the new process works.
+
+![Moltron Telemetry Support](https://moltron.ai/moltron-telemetry.webp)
 
 ### 3. Efficient Use of Model Intelligence
 
@@ -194,8 +196,10 @@ graph TD
 
 **Powered by:**  
 
-- [SmythOS](https://smythos.com) (Core Runtime)  
 - [OpenClaw Community](https://github.com/openclaw)
+- [SmythOS](https://smythos.com) (Core Runtime)  
+- [Open Telemetry](https://github.com/open-telemetry)
+- [Git](https://github.com/git/git)
 
 ## 🤝 Join the Evolution
 
