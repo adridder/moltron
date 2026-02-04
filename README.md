@@ -1,21 +1,4 @@
-# Why we made Moltron
-
 > **"Stop building agents. Start evolving employees."**
-
-**The Evolution Engine for OpenClaw.** Moltron transforms your agent from a fragile script runner into a **Self-Evolving Digital Employee** that hardens its own skills, self-heals when they break, and scales into a collaborative swarm.
-
-Like you, I recognize OpenClaw made history, and we have a taste of the future.  
-
-**But I want more.**
-
-I dream of **the self-improving digital colleague**, and the way OpenClaw creates skills right now is the **#1 obstacle** to my dream.
-
-I dream of **a swarm of 100 agents** working for me: coders, designers, marketers, video editors, writers, legal experts, ...
-
-Each of them specializes and gets smarter over time — because like humans, they:  
-- self-reflect on their skills  
-- measure performance  
-- learn new things
 
 ## 📦 Installation
 
@@ -35,6 +18,27 @@ curl -sSL https://raw.githubusercontent.com/adridder/moltron/main/install.sh | b
 **The best thing of all, it requires ZERO WORK AND CONFIG and works out of the box.**  
 
 Just install the MOLTRON skill in OpenClaw, and then it will teach itself skills and specialize based on the kind of work you give it.
+
+
+# Why we made Moltron
+
+![Moltron Logo](https://moltron.ai/assets/moltron-logo-CvfRdu05.png)
+> **"Carcinization: Everything Evolves into a Crab."**
+
+**The Evolution Engine for OpenClaw.** Moltron transforms your agent from a fragile script runner into a **Self-Evolving Digital Employee** that hardens its own skills, self-heals when they break, and scales into a collaborative swarm.
+
+Like you, I recognize OpenClaw made history, and we have a taste of the future.  
+
+**But I want more.**
+
+I dream of **the self-improving digital colleague**, and the way OpenClaw creates skills right now is the **#1 obstacle** to my dream.
+
+I dream of **a swarm of 100 agents** working for me: coders, designers, marketers, video editors, writers, legal experts, ...
+
+Each of them specializes and gets smarter over time — because like humans, they:  
+- self-reflect on their skills  
+- measure performance  
+- learn new things
 
 ## ⚡ The Sci-Fi Dream: Infinite Evolution
 
