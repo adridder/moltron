@@ -134,7 +134,7 @@ if [ -d "$TARGET_DIR/moltron-skill-creator" ]; then
     echo -e "${CYAN}💡 ${BOLD}Recommendation:${NC}"
     echo -e "${CYAN}   If you have made custom changes, cancel now (press N)${NC}"
     echo -e "${CYAN}   and create a backup first:${NC}"
-    echo -e "${BLUE}   cp -r $TARGET_DIR/moltron-skill-creator $TARGET_DIR/moltron-skill-creator.backup${NC}"
+    echo -e "${BLUE}   cp -r $TARGET_DIR/moltron-skill-creator ~/moltron/backups/moltron-skill-creator.backup${NC}"
     echo ""
     
     # Auto-yes mode for non-interactive installs
@@ -152,7 +152,7 @@ if [ -d "$TARGET_DIR/moltron-skill-creator" ]; then
             echo -e "${GREEN}✅ Update cancelled. Your existing installation is safe.${NC}"
             echo ""
             echo -e "${CYAN}To backup your current installation, run:${NC}"
-            echo -e "${BLUE}cp -r $TARGET_DIR/moltron-skill-creator $TARGET_DIR/moltron-skill-creator.backup${NC}"
+            echo -e "${BLUE}mkdir -p ~/moltron/backups && cp -r $TARGET_DIR/moltron-skill-creator ~/moltron/backups/moltron-skill-creator.backup${NC}"
             echo ""
             exit 0
         fi
@@ -160,8 +160,19 @@ if [ -d "$TARGET_DIR/moltron-skill-creator" ]; then
     echo ""
     echo -e "${BLUE}📝 Creating backup before update...${NC}"
     
+    # Create backup directory if it doesn't exist
+    BACKUP_BASE_DIR="$HOME/moltron/backups"
+    if [ ! -d "$BACKUP_BASE_DIR" ]; then
+        mkdir -p "$BACKUP_BASE_DIR"
+        if [ $? -eq 0 ]; then
+            echo -e "${GREEN}✅ Created backup directory: ${MAGENTA}$BACKUP_BASE_DIR${NC}"
+        else
+            echo -e "${YELLOW}⚠️  Failed to create backup directory, but continuing...${NC}"
+        fi
+    fi
+    
     # Create automatic backup with timestamp
-    BACKUP_DIR="$TARGET_DIR/moltron-skill-creator.backup.$(date +%Y%m%d_%H%M%S)"
+    BACKUP_DIR="$BACKUP_BASE_DIR/moltron-skill-creator.backup.$(date +%Y%m%d_%H%M%S)"
     cp -r "$TARGET_DIR/moltron-skill-creator" "$BACKUP_DIR"
     
     if [ $? -eq 0 ]; then
