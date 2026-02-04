@@ -135,7 +135,10 @@ if [ -d "$TARGET_DIR/moltron-skill-creator" ]; then
         echo -e "${BLUE}   Auto-yes mode enabled, proceeding with update...${NC}"
         echo ""
     else
-        read -p "   Do you want to proceed with the update? (y/N): " -n 1 -r
+        echo -e "${BOLD}${CYAN}   Do you want to proceed with the update? ${YELLOW}(y/N)${NC}"
+        echo -n "   Your choice: "
+        read -n 1 -r
+        echo ""
         echo ""
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then
             echo ""
