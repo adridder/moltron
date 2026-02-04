@@ -112,7 +112,7 @@ MOLTRON upgrades your OpenClaw skill creation and gives it:
 - **self-reflection**  
 - **versioning**
 
-![Self Evaluation of Skills](https://moltron.ai/images/uploaded-image.png)  
+![Self Evaluation of Skills](https://moltron.ai/moltron-telemetry.webp)  
 
 It also:  
 - utilizes the best CLI agent runtime sandbox for added security and reproducibility  
