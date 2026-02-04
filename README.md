@@ -9,6 +9,13 @@ Give your agent the ability to self-evolve.
 curl -sSL https://raw.githubusercontent.com/adridder/moltron/main/install.sh | bash  
 ```
 
+Then go to the chat and send this message to your OpenClaw agent : 
+```
+@moltron init
+```
+
+This will install all the pre-requisites and prepare the environment for moltron.
+
 ### Manual Setup
 
 1. **Clone the Repo:** `git clone https://github.com/adridder/moltron.git`  
