@@ -20,6 +20,12 @@ curl -sSL https://raw.githubusercontent.com/adridder/moltron/main/install.sh | b
 
 This will install all the pre-requisites and prepare the environment for moltron.
 
+
+### Walkthrough video
+https://github.com/user-attachments/assets/15c209e1-3e93-4074-b111-c722fd44cca7
+
+
+
 ### Manual Setup
 
 1. **Clone the Repo inside OpenClaw terminal:** `git clone https://github.com/adridder/moltron.git`
