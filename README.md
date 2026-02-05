@@ -6,11 +6,13 @@
 
 Give your agent the ability to self-evolve.  
 
+1 - Copy past this line in your OpenClaw terminal to add moltron skill :
+
 ```bash
 curl -sSL https://raw.githubusercontent.com/adridder/moltron/main/install.sh | bash  
 ```
 
-Then go to the chat and send this message to your OpenClaw agent : 
+2 - Then go to the chat and send this message to your OpenClaw agent : 
 
 ```
 @moltron init
@@ -20,7 +22,7 @@ This will install all the pre-requisites and prepare the environment for moltron
 
 ### Manual Setup
 
-1. **Clone the Repo:** `git clone https://github.com/adridder/moltron.git`
+1. **Clone the Repo inside OpenClaw terminal:** `git clone https://github.com/adridder/moltron.git`
 2. **Inject the Engine:** `cp -r moltron-skill-creator ~/.openclaw/workspace/skills/`
 3. **Restart & Watch:** Restart OpenClaw. The evolution begins immediately.
 4. **Send** this message to OpenClaw agent in the chat : @moltron init
@@ -31,7 +33,7 @@ Just install the MOLTRON skill in OpenClaw, and then it will teach itself skills
 
 # Why we made Moltron
 
-![Moltron Logo](https://moltron.ai/assets/moltron-logo-CvfRdu05.png)
+Moltron Logo
 
 > **"Carcinization: Everything Evolves into a Crab."**
 
@@ -84,7 +86,7 @@ Try to re-interpret your skill and re-solve the same problem each time you encou
 - **MOLTRON**  
 Notices the process doesn't work, inspects its telemetry, logs, self reflects on how to make process better, updates its own skill, backs up versions with git, scores the outcome, and is able to report on how well the new process works.
 
-![Moltron Telemetry Support](https://moltron.ai/moltron-telemetry.webp)
+Moltron Telemetry Support
 
 ### 3. Efficient Use of Model Intelligence
 
@@ -211,4 +213,4 @@ We are building the first generation of truly self-evolving digital employees.
 ## 📜 License & Acknowledgement
 
 Distributed under the **MIT License**.  
-*Moltron utilizes the Open Source components of SmythOS.*
+*Moltron utilizes the Open Source components of SmythOS.his* 
