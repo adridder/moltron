@@ -291,11 +291,11 @@ LOG_FILTER=""
 
 ### Step 8 : Add Scoring script 
 **Purpose:** The scoring script allows to evaluate the skill performance continuously and decide when a new version is working less good than an older ones
-for this, you need to copy the scor script from moltron-skill-creator/scripts/score.js to the project folder (~/moltron/projects/<skill-name>)
+for this, you need to create the score script from moltron-skill-creator/references/score.md , and put it in the project folder (~/moltron/projects/<skill-name>)
 
 then run the score check 
 ````bash
-node score.js --check #adjust the script path if needed 
+node ~/moltron/projects/<skill-name>/score.js --check   #adjust the script path if needed 
 ```
 This should output something like : 
 ```
