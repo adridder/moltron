@@ -199,16 +199,18 @@ graph TD
 **Powered by:**  
 
 - [OpenClaw Community](https://github.com/openclaw)
-- [SmythOS](https://smythos.com) (Core Runtime)  
+- [SmythOS](https://github.com/SmythOS/sre) (Core Runtime) 
 - [Open Telemetry](https://github.com/open-telemetry)
 - [Git](https://github.com/git/git)
+
+**Enterprise Security**
+- If you need skills running in an isolated vault outside your agent, VPC or HIPAA compliance, [talk to the SmythOS team](https://smythos.com/request-a-demo/)
 
 ## 🤝 Join the Evolution
 
 We are building the first generation of truly self-evolving digital employees.  
 
 - **Tinkerers:** [Join our Discord](https://discord.gg/smythos) to share your evolved skills.  
-- **Enterprise:** If you need this running in an isolated vault with HIPAA compliance, [talk to the SmythOS team](https://smythos.com/request-a-demo/).
 
 ## 📜 License & Acknowledgement
 
