@@ -1,4 +1,11 @@
-> **"Stop building agents. Start evolving employees."**
+Why: your skills are inefficient, waste tokens and don't execute as reliably as they should.
+
+What: Moltron is a skill that teaches your agent how to build & self-improve skills.
+
+Unique: Leverages CLI, OpenTelemetry, Git and SmythOS for insane power.
+
+Try it now, just one click. Fully Open Source.
+
 
 ## 📦 Installation
 
