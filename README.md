@@ -1,4 +1,13 @@
-> **"Stop building agents. Start evolving employees."**
+**Why care**: agent-created skills are inefficient, waste tokens and don't execute as reliably as they should.
+
+**What it is**: Moltron is a skill that teaches your agent how to build & self-improve skills.
+
+**How it's built**: Leverages CLI, OpenTelemetry, Git and SmythOS for insane power along with performance evaluations.
+
+**Outcome**: Your agent self-improves over time with skills that actually work, by itself. Over time, it becomes unstoppable.
+
+Try it now, just one click. Fully Open Source.
+
 
 ## 📦 Installation
 
@@ -19,6 +28,12 @@ curl -sSL https://raw.githubusercontent.com/adridder/moltron/main/install.sh | b
 ```
 
 This will install all the pre-requisites and prepare the environment for moltron.
+
+
+### Walkthrough video
+https://github.com/user-attachments/assets/15c209e1-3e93-4074-b111-c722fd44cca7
+
+
 
 ### Manual Setup
 
@@ -199,16 +214,18 @@ graph TD
 **Powered by:**  
 
 - [OpenClaw Community](https://github.com/openclaw)
-- [SmythOS](https://smythos.com) (Core Runtime)  
+- [SmythOS](https://github.com/SmythOS/sre) (Core Runtime) 
 - [Open Telemetry](https://github.com/open-telemetry)
 - [Git](https://github.com/git/git)
+
+**Enterprise Security**
+- If you need skills running in an isolated vault outside your agent, VPC or HIPAA compliance, [talk to the SmythOS team](https://smythos.com/request-a-demo/)
 
 ## 🤝 Join the Evolution
 
 We are building the first generation of truly self-evolving digital employees.  
 
 - **Tinkerers:** [Join our Discord](https://discord.gg/smythos) to share your evolved skills.  
-- **Enterprise:** If you need this running in an isolated vault with HIPAA compliance, [talk to the SmythOS team](https://smythos.com/request-a-demo/).
 
 ## 📜 License & Acknowledgement
 
