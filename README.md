@@ -1,8 +1,10 @@
-Why: your skills are inefficient, waste tokens and don't execute as reliably as they should.
+**Why care**: agent-created skills are inefficient, waste tokens and don't execute as reliably as they should.
 
-What: Moltron is a skill that teaches your agent how to build & self-improve skills.
+**What it is**: Moltron is a skill that teaches your agent how to build & self-improve skills.
 
-Unique: Leverages CLI, OpenTelemetry, Git and SmythOS for insane power.
+**How it's built**: Leverages CLI, OpenTelemetry, Git and SmythOS for insane power along with performance evaluations.
+
+**Outcome**: Your agent self-improves over time with skills that actually work, by itself. Over time, it becomes unstoppable.
 
 Try it now, just one click. Fully Open Source.
 
